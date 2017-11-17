@@ -23,6 +23,9 @@ class TestCase extends BaseTestCase
 
 	protected function getPackageProviders($app)
 	{
-		return ['Matthewbdaly\LaravelErrorSnapshot\Providers\ErrorSnapshotServiceProvider'];
+        return [
+            'Matthewbdaly\LaravelErrorSnapshot\Providers\ErrorSnapshotServiceProvider',
+            'Matthewbdaly\LaravelErrorSnapshot\Providers\ErrorSnapshotEventServiceProvider'
+        ];
     }
 }

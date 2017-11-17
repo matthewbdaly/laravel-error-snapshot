@@ -32,6 +32,7 @@
         "laravel": {
             "providers": [
                 "Matthewbdaly\\LaravelErrorSnapshot\\Providers\\ErrorSnapshotServiceProvider"
+                "Matthewbdaly\\LaravelErrorSnapshot\\Providers\\ErrorSnapshotEventServiceProvider"
             ]
         }
     },
