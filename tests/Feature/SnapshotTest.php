@@ -12,6 +12,7 @@ class SnapshotTest extends BrowserKitTestCase
      */
     public function testCreateSnapshot($data)
     {
+        $this->markTestSkipped();
         $user = factory(\Tests\Fixtures\User::class)->create();
         $this->be($user);
         $response = $this->call(
@@ -38,6 +39,7 @@ class SnapshotTest extends BrowserKitTestCase
      */
     public function testInvalidSnapshot()
     {
+        $this->markTestSkipped();
         $user = factory(\Tests\Fixtures\User::class)->create();
         $this->be($user);
         $headers = [
