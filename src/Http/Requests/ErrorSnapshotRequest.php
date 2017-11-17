@@ -4,6 +4,9 @@ namespace Matthewbdaly\LaravelErrorSnapshot\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Error snapshot request
+ */
 class ErrorSnapshotRequest extends FormRequest
 {
     /**
