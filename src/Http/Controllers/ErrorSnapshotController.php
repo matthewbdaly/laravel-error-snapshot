@@ -35,5 +35,6 @@ class ErrorSnapshotController extends BaseController
             $data['user_id'] = $user->id;
         }
         event(new SnapshotCaptured($data));
+        return response()->json($data, 201);
     }
 }
