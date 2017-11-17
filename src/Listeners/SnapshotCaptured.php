@@ -24,7 +24,7 @@ class SnapshotCaptured
     /**
      * Handle the event.
      *
-     * @param  Capture  $event
+     * @param  Capture $event
      * @return void
      */
     public function handle(Capture $event)

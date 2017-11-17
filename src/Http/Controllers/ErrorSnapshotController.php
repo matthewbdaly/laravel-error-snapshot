@@ -25,7 +25,7 @@ class ErrorSnapshotController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  ErrorSnapshotRequest  $request
+     * @param  ErrorSnapshotRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(ErrorSnapshotRequest $request)
