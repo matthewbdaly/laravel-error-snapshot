@@ -34,6 +34,26 @@ class SnapshotTest extends BrowserKitTestCase
         $this->assertEquals($user->id, $content->user_id);
     }
 
+    /**
+     */
+    public function testInvalidSnapshot()
+    {
+        $user = factory(\Tests\Fixtures\User::class)->create();
+        $this->be($user);
+        $headers = [
+            'HTTP_Accept' => 'application/json',
+        ];
+        $response = $this->call(
+            'POST',
+            '/api/snapshot',
+            [],
+            [],
+            [],
+            $headers
+        );
+        $this->assertResponseStatus(422);
+    }
+
     public function dataProvider()
     {
         return [[[
