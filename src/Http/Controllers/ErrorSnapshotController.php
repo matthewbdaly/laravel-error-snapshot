@@ -11,12 +11,26 @@ use Illuminate\Contracts\Auth\Guard;
 use Matthewbdaly\LaravelErrorSnapshot\Http\Requests\ErrorSnapshotRequest;
 use Matthewbdaly\LaravelErrorSnapshot\Events\SnapshotCaptured;
 
+/**
+ * Snapshot controller
+ */
 class ErrorSnapshotController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    /**
+     * Auth instance
+     *
+     * @var $auth
+     */
     protected $auth;
 
+    /**
+     * Constructor
+     *
+     * @param Guard $auth The auth instance.
+     * @return void
+     */
     public function __construct(Guard $auth)
     {
         $this->auth = $auth;
@@ -25,7 +39,7 @@ class ErrorSnapshotController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  ErrorSnapshotRequest $request
+     * @param  ErrorSnapshotRequest $request The request.
      * @return \Illuminate\Http\Response
      */
     public function store(ErrorSnapshotRequest $request)
