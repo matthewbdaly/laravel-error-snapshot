@@ -34,5 +34,8 @@
                 "Matthewbdaly\\LaravelErrorSnapshot\\Providers\\ErrorSnapshotServiceProvider"
             ]
         }
+    },
+    "require": {
+        "matthewbdaly/laravel-repositories": "^1.0"
     }
 }
