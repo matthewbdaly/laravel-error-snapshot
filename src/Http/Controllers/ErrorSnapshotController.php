@@ -15,16 +15,6 @@ class ErrorSnapshotController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  ErrorSnapshotRequest  $request
@@ -33,16 +23,5 @@ class ErrorSnapshotController extends BaseController
     public function store(ErrorSnapshotRequest $request)
     {
         event(new SnapshotCaptured);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 }
