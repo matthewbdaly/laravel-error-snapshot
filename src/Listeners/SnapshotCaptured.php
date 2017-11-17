@@ -7,13 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Matthewbdaly\LaravelErrorSnapshot\Events\SnapshotCaptured as Capture;
 use Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot;
 
+/**
+ * Handles snapshot capture
+ */
 class SnapshotCaptured
 {
+    /**
+     * Repository
+     *
+     * @var $repository
+     */
     protected $repository;
 
     /**
      * Create the event listener.
      *
+     * @param Snapshot $repository The repository.
      * @return void
      */
     public function __construct(Snapshot $repository)
@@ -24,7 +33,7 @@ class SnapshotCaptured
     /**
      * Handle the event.
      *
-     * @param  Capture $event
+     * @param  Capture $event The capture event.
      * @return void
      */
     public function handle(Capture $event)
