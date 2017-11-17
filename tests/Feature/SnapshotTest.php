@@ -26,6 +26,12 @@ class SnapshotTest extends BrowserKitTestCase
         $this->assertEquals(json_encode(['valid' => true]), $saved->state);
         $this->assertEquals(json_encode(['valid' => true]), $saved->trace);
         $this->assertEquals(json_encode(['valid' => true]), $saved->meta);
+        $this->assertEquals($user->id, $saved->user_id);
+        $content = json_decode($response->getContent());
+        $this->assertEquals(json_encode(['valid' => true]), $content->state);
+        $this->assertEquals(json_encode(['valid' => true]), $content->trace);
+        $this->assertEquals(json_encode(['valid' => true]), $content->meta);
+        $this->assertEquals($user->id, $content->user_id);
     }
 
     public function dataProvider()
