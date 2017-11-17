@@ -29,6 +29,6 @@ class SnapshotCaptured
      */
     public function handle(Capture $event)
     {
-        //
+        $this->repository->create($event->getData());
     }
 }

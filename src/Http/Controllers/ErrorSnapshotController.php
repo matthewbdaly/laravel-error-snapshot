@@ -22,6 +22,6 @@ class ErrorSnapshotController extends BaseController
      */
     public function store(ErrorSnapshotRequest $request)
     {
-        event(new SnapshotCaptured);
+        event(new SnapshotCaptured($request->all()));
     }
 }

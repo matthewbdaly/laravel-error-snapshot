@@ -15,9 +15,9 @@ class SnapshotCapturedTest extends TestCase
     public function testCaptureSnapshot($data)
     {
         $repo = m::mock('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot');
+        $repo->shouldReceive('create')->with($data)->once();
         $this->app->instance('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot', $repo);
         event(new SnapshotCaptured($data));
-        $repo->shouldHaveReceived('create')->with($data)->once();
     }
 
     public function dataProvider()
