@@ -26,6 +26,10 @@ class ErrorSnapshotServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot', function () {
+            $baseRepo = new \Matthewbdaly\LaravelErrorSnapshot\Eloquent\Repositories\Snapshot(new \Matthewbdaly\LaravelErrorSnapshot\Eloquent\Models\Snapshot);
+            $cachingRepo = new \Matthewbdaly\LaravelErrorSnapshot\Eloquent\Repositories\Decorators\Snapshot($baseRepo, $this->app['cache.store']);
+            return $cachingRepo;
+        });
     }
 }
