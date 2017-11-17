@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Snapshot extends Model
 {
     use SoftDeletes;
+
+    protected $fillable = [
+        'meta',
+        'state',
+        'trace',
+        'user_id',
+    ];
 }
