@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Event;
 use Matthewbdaly\LaravelErrorSnapshot\Http\Controllers\ErrorSnapshotController;
 use Matthewbdaly\LaravelErrorSnapshot\Http\Requests\ErrorSnapshotRequest;
 use Matthewbdaly\LaravelErrorSnapshot\Events\SnapshotCaptured;
+use Mockery as m;
 
 class ErrorSnapshotControllerTest extends TestCase
 {
@@ -18,7 +19,10 @@ class ErrorSnapshotControllerTest extends TestCase
             'trace' => json_encode(['valid' => true]),
             'meta' => json_encode(['valid' => true]),
         ]);
-        $controller = new ErrorSnapshotController;
+        $auth = m::mock('Illuminate\Contracts\Auth\Guard');
+        $auth->shouldReceive('user')->once()->andReturn($auth);
+        $auth->id = 1;
+        $controller = new ErrorSnapshotController($auth);
         $controller->store($request);
         Event::assertDispatched(SnapshotCaptured::class);
     }
