@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Matthewbdaly\LaravelErrorSnapshot\Http\Requests\ErrorSnapshotRequest;
+use Matthewbdaly\LaravelErrorSnapshot\Events\SnapshotCaptured;
 
 class ErrorSnapshotController extends BaseController
 {
@@ -23,24 +25,14 @@ class ErrorSnapshotController extends BaseController
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  ErrorSnapshotRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ErrorSnapshotRequest $request)
     {
-        //
+        event(new SnapshotCaptured);
     }
 
     /**

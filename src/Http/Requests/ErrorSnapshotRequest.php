@@ -24,7 +24,9 @@ class ErrorSnapshotRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'state' => 'string',
+            'trace' => 'required|string',
+            'meta' => 'string'
         ];
     }
 }
