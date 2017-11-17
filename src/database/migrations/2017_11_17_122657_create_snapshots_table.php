@@ -18,6 +18,7 @@ class CreateSnapshotsTable extends Migration
             $table->json('state')->nullable();
             $table->json('trace')->nullable();
             $table->json('meta')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

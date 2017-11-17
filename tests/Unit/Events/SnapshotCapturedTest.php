@@ -26,6 +26,7 @@ class SnapshotCapturedTest extends TestCase
             'state' => json_encode(['valid' => true]),
             'trace' => json_encode(['valid' => true]),
             'meta' => json_encode(['valid' => true]),
+            'user_id' => 1,
         ]]];
     }
 }
