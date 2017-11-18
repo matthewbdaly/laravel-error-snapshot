@@ -14,10 +14,16 @@ class SnapshotTest extends BrowserKitTestCase
     {
         $user = factory(\Tests\Fixtures\User::class)->create();
         $this->be($user);
+        $headers = [
+            'HTTP_Accept' => 'application/json',
+        ];
         $response = $this->call(
             'POST',
             '/api/snapshot',
-            $data
+            $data,
+            [],
+            [],
+            $headers
         );
         $this->assertResponseStatus(201);
         $snapshots = Snapshot::all();
