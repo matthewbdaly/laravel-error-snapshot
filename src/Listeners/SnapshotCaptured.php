@@ -10,7 +10,7 @@ use Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot;
 /**
  * Handles snapshot capture
  */
-class SnapshotCaptured
+class SnapshotCaptured implements ShouldQueue
 {
     /**
      * Repository
