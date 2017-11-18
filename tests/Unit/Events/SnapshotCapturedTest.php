@@ -19,6 +19,17 @@ class SnapshotCapturedTest extends TestCase
         $this->app->instance('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot', $repo);
         event(new SnapshotCaptured($data));
     }
+    /**
+     * @dataProvider dataProvider
+     * @expectedException Matthewbdaly\LaravelErrorSnapshot\Exceptions\SnapshotDataIncomplete
+     */
+    public function testCaptureSnapshotIncompleteData($data)
+    {
+        unset($data['trace']);
+        $repo = m::mock('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot');
+        $this->app->instance('Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot', $repo);
+        event(new SnapshotCaptured($data));
+    }
 
     public function dataProvider()
     {

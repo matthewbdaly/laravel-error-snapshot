@@ -6,6 +6,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Matthewbdaly\LaravelErrorSnapshot\Events\SnapshotCaptured as Capture;
 use Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot;
+use Matthewbdaly\LaravelErrorSnapshot\Exceptions\SnapshotDataIncomplete;
 
 /**
  * Handles snapshot capture
@@ -38,6 +39,10 @@ class SnapshotCaptured implements ShouldQueue
      */
     public function handle(Capture $event)
     {
-        $this->repository->create($event->getData());
+        $data = $event->getData();
+        if (!array_key_exists('trace', $data)) {
+            throw new SnapshotDataIncomplete;
+        }
+        $this->repository->create($data);
     }
 }
