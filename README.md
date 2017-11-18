@@ -5,6 +5,15 @@
 
 Stores errors from both the client and server side in a consistent format to aid debugging.
 
+Use case
+--------
+
+With the rise of single-page web apps, many modern web apps have moved functionality that was previously handled on the server side to the client side. This is not without its advantages, but it means that many errors that may occur are locked up in the user's web browser where they can't easily be reported and fixed.
+
+This package provides an API endpoint for Laravel applications that accepts a stack trace for an error, as well as an optional representation of the application state and a meta field for other data. It works by triggering an event when a request is received, and the event listener persists the data to the database.
+
+You can also trigger this event yourself if you wish to capture a server-side exception. This allows for storing all of your exceptions in one place for easier management.
+
 Installation
 ------------
 
