@@ -36,3 +36,8 @@ event(new SnapshotCaptured($data));
 ```
 
 You'll probably want to do this in your main exception handler in most cases.
+
+Viewing snapshots
+-----------------
+
+As viewing snapshots is going to be application-specific, there are no views, controllers or routes for displaying them. You should implement this functionality yourself. There is already a repository included that you can use to retrieve the snapshots - just typehint `Matthewbdaly\LaravelErrorSnapshot\Contracts\Repositories\Snapshot` to retrieve it.
